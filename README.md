@@ -9,6 +9,8 @@ Example sound sampling from SAMPLING.cpp at 100 kHz using the PRU (200 kHz is ov
 
 Output from the theoretical cross-correlation algorithm, demonstrated in matlab for plotting:
 
-<img src="images/ss3.png" width="550">
+<img src="images/ss3.png" width="800">
+
+The signal is shifted by 0.01 seconds, and despite the noise the cross-correlation technique accurately reflects that shift.
 
 
