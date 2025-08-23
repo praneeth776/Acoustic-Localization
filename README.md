@@ -11,6 +11,7 @@ Output from the theoretical cross-correlation algorithm, demonstrated in matlab 
 
 <img src="images/ss3.png" width="800">
 
-The signal is shifted by 0.01 seconds, and despite the noise the cross-correlation technique accurately reflects that shift.
+The signal is shifted by 0.01 seconds, and despite the noise the cross-correlation technique accurately reflects that shift. With noisier
+signals, the peak will be less clear but still fare better than non-frequency-modulated signals.
 
 
