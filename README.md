@@ -3,13 +3,13 @@ UCSD Coordinated Robotics Lab
 
 Using a BeagleBone Blue, sound signals were sampled and analyzed for distance measurements. Sound was created using a speaker and sampled at a distance. The libpruio library was used to speed up the ADC sampling rate on the BeagleBone by accessing its PRU in SAMPLING.cpp. Using the fftw library, a cross-correlation algorithm was implemented on the sampled sound signal, comparing it with the reference frequency-modulated signal in Cross Correlation.cpp. The combined sampling and cross correlation gives a distance measurement in localization.cpp. Then, the distance measurements from 4 different speakers playing towards the main sampling computer can be combined in Megha's matlab algorithm to produce its 2D coordinates. We are currently in the process of syncing the clocks between the computers producing the sound signal and the computer sampling it.
 
-# Libpruio Setup:
+# Libpruio Setup
 
 On your BeagleBone, 
 
-uname -r
-sudo /opt/scripts/tools/update_kernel.sh --bone-kernel --lts-4_19
-sudo nano /boot/uEnv.txt
+    uname -r
+    sudo /opt/scripts/tools/update_kernel.sh --bone-kernel --lts-4_19
+    sudo nano /boot/uEnv.txt
 
 You should see: 
 
@@ -28,8 +28,8 @@ You should see:
 
 Save the file and then sudo reboot. Once rebooted:
 
-lsmod | grep uio
-ls -l /dev/uio*
+    lsmod | grep uio
+    ls -l /dev/uio*
 
 You should see: 
 
@@ -49,29 +49,27 @@ You should see:
 
 Then, to bypass security issues with Debian Jessie being an outdated OS:
 
-sudo nano /etc/apt/sources.list
+sudo nano /etc/apt/sources.list 
 
     deb [trusted=yes] http://beagle.tuks.nl/debian jessie/
     deb-src [trusted=yes] http://beagle.tuks.nl/debian jessie/
 
 Add the keyring:
 
-  wget -qO - http://beagle.tuks.nl/debian/pubring.gpg | sudo apt-key add -
-  
-  sudo apt-get update
+      wget -qO - http://beagle.tuks.nl/debian/pubring.gpg | sudo apt-key add -
+      
+      sudo apt-get update
 
 Or...
 
-  sudo apt-get update --allow-unauthenticated
+      sudo apt-get update --allow-unauthenticated
   
-  (You should just see a single error thats like “unsupported binary format”. Ignore this)
+(You should just see a single error thats like “unsupported binary format”. Ignore this)
 
+    sudo apt-get install libpruio
+    sudo apt-get install libpruio-dev libpruio-lkm libpruio-doc
 
-sudo apt-get install libpruio
-
-sudo apt-get install libpruio-dev libpruio-lkm libpruio-doc
-
-The you should be good to go.
+Then you should be good to go.
 
 # Output
 
